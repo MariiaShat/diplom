@@ -17,6 +17,9 @@ app.use('/api/auth', require('./src/routes/authRoutes'));
 app.use('/api/users', require('./src/routes/userRoutes'));
 app.use('/api/movies', require('./src/routes/tmdbRoutes'));
 
+app.get('/', (req, res) => {
+  res.json({ message: 'MoodMovie API is running!' });
+});
 // Подключение к MongoDB
 mongoose.connect(process.env.MONGODB_URI)
   .then(() => {
